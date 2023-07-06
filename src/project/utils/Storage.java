@@ -30,6 +30,19 @@ public class Storage {
         fileManager.writeObjects(USERS_FILE, users);
     }
 
+    public void updateUser(User updatedUser) {
+        ArrayList<User> users = getUsers();
+        for(int i = 0; i < users.size(); i++) {
+            User user = users.get(i);
+
+            if(user.getId().equals(updatedUser.getId())) {
+                users.set(i, updatedUser);
+                fileManager.writeObjects(USERS_FILE, users);
+                return;
+            }
+        }
+    }
+
     public User getUserByAccountId(UUID accountId) {
         List<BankAccount> accounts = getAccounts();
 

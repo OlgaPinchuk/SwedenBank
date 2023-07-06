@@ -1,10 +1,12 @@
 package project.ui;
 
 import project.account.*;
+import project.auth.PasswordHasher;
 import project.user.User;
 import project.utils.*;
 
 import java.math.BigDecimal;
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -17,9 +19,12 @@ public class CustomerMenu extends Menu {
     private final static List<String> options = Arrays.asList(
             "Show balance",
             "Send money",
-            "Check the latest transactions",
+            "Check transactions",
+            "Rename account",
+            "Change password",
             "Deposit Money (DEMO ONLY)",
             "Withdraw Money (DEMO ONLY)",
+            "Log out",
             "Exit"
     );
 
@@ -48,15 +53,19 @@ public class CustomerMenu extends Menu {
                 case 1 -> checkBalance();
                 case 2 -> transferMoney();
                 case 3 -> printTransactionsHistory();
-                case 4 -> depositMoney();
-                case 5 -> withdrawMoney();
-                // logout
-                case 6 -> exit();
+                case 4 -> renameAccount();
+                case 5 -> changePassword();
+                case 6 -> depositMoney();
+                case 7 -> withdrawMoney();
+                case 8 -> logout();
+                case 9 -> exit();
                 default -> showInvalidOptionMessage();
             }
         }
         catch (NumberFormatException exception) {
             showInvalidOptionMessage();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
         }
         showMenu();
     }
@@ -64,11 +73,6 @@ public class CustomerMenu extends Menu {
     @Override
     protected String getHeader() {
         return null;
-    }
-
-    private void checkBalance() {
-        BankAccount userAccount = userAccounts.get(0);// In this sprint a user has 1 account.
-        ConsoleMessage.showSuccessMessage("Available balance: " + userAccount.getFormattedBalance());
     }
 
     private void printCustomerDetails() {
@@ -99,6 +103,36 @@ public class CustomerMenu extends Menu {
         new Table(columnsWidth, headers, rows);
 
         printBlankLine();
+    }
+
+    private void checkBalance() {
+        BankAccount userAccount = userAccounts.get(0);// In this sprint a user has 1 account.
+        ConsoleMessage.showSuccessMessage("Available balance: " + userAccount.getFormattedBalance());
+    }
+
+    private void changePassword() throws NoSuchAlgorithmException {
+        String newPassword = getUserInput("Insert new password or print exit to return: ");
+        if (newPassword == null) {
+            return;
+        }
+
+        String hashedPassword = PasswordHasher.hashPassword(newPassword);
+        user.setPassword(hashedPassword);
+        storage.updateUser(user);
+        ConsoleMessage.showSuccessMessage("The password changed successfully!");
+    }
+
+    private void renameAccount() {
+       BankAccount account = userAccounts.get(0);
+       String newName = getUserInput("Insert new name or print exit to return: ");
+
+       if (newName == null) {
+           return;
+       }
+       account.setName(newName);
+       storage.updateAccount(account);
+       ConsoleMessage.showSuccessMessage("The account renamed successfully. New name: " + account.getName());
+       printAccountsDetails();
     }
 
     private void depositMoney() {
@@ -180,6 +214,12 @@ public class CustomerMenu extends Menu {
         }
 
         performMoneyTransfer(senderAccount, recipientAccount, amount);
+    }
+
+    private void logout() {
+        ConsoleMessage.clearConsole();
+        HomeMenu homeMenu = new HomeMenu();
+        homeMenu.run();
     }
 
     private String getRecipientAccountNumber() {
