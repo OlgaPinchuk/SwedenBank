@@ -4,22 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="init project">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/project/account/Transaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/project/auth/Auth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/project/auth/PasswordHasher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/project/auth/Validator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/project/data/transactions.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/project/ui/CustomerMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/project/ui/Table.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/project/user/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/project/utils/ConsoleMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/project/utils/FileManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/project/utils/ObjectFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/project/utils/Storage.java" afterDir="false" />
+    <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="add structure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/account/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/account/BankAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/account/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/account/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/auth/PasswordHasher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/auth/PasswordHasher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/auth/UserAuthenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/auth/UserAuthenticator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/data/accounts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/data/accounts.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/data/transactions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/data/transactions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/data/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/data/users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/ui/CustomerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/ui/CustomerMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/ui/HomeMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/ui/HomeMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/ui/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/ui/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/utils/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/utils/Storage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +36,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2Rq2Gj5uxOMUevYXE8pfmFNZ4wT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -95,12 +95,31 @@
       <option name="project" value="LOCAL" />
       <updated>1687963361601</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add structure">
+      <created>1688566776254</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1688566776254</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init project" />
-    <option name="LAST_COMMIT_MESSAGE" value="init project" />
+    <MESSAGE value="add structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="add structure" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

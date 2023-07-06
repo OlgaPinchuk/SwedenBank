@@ -24,7 +24,8 @@ public class PasswordHasher {
             }
 
             return hexString.toString();
-        } catch (NoSuchAlgorithmException e) {
+        }
+        catch (NoSuchAlgorithmException e) {
            ConsoleMessage.showErrorMessage("Error occurred while hashing the password: " + e.getMessage());
             return null;
         }

@@ -15,6 +15,7 @@ public abstract class Menu {
           this.instruction = instruction;
           this.options = options;
      }
+
      abstract void handleUserChoice();
      protected abstract String getHeader();
 
@@ -27,6 +28,20 @@ public abstract class Menu {
      public void displayMenu(String header) {
           printHeader(header);
           printBody();
+     }
+
+     public void showMenu() {
+          displayMenu();
+          handleUserChoice();
+     }
+
+     public boolean shouldReturnToMenu(String input) {
+          return input.equalsIgnoreCase("exit");
+     }
+
+     public void returnToMenu() {
+          ConsoleMessage.showInfoMessage("Returning to the previous menu.");
+          showMenu();
      }
 
      public void printOptions(List<String> options) {
@@ -46,12 +61,16 @@ public abstract class Menu {
 
      public String getUserInput(String message) {
           Scanner scanner = new Scanner(System.in);
-          System.out.print(message);
-          String input = scanner.nextLine();
-          if (input.equalsIgnoreCase("exit")) {
-               ConsoleMessage.showInfoMessage("Returning to the previous menu.");
-               printBlankLine();
-               return null;
+          String input = "";
+
+          while (input.isEmpty()) {
+               System.out.print(message);
+               input = scanner.nextLine();
+
+
+               if (input.isEmpty()) {
+                    showInvalidInputMessage();
+               }
           }
           return input;
      }

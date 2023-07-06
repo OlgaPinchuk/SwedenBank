@@ -7,4 +7,5 @@ import java.util.Currency;
 import java.util.UUID;
 
 public record Transaction(UUID senderAccountId, UUID recipientAccountId, LocalDateTime date,
-                          BigDecimal amount, Currency currency ) implements Serializable { }
+                          BigDecimal amount, Currency currency ) implements Serializable {
+}

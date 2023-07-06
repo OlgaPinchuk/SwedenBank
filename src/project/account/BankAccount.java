@@ -20,24 +20,19 @@ public class BankAccount implements Serializable {
 
     private Currency currency;
     private List<Transaction> transactionsHistory;
-    private final String DEFAULT_NAME = "Main Account";
-    private final String CURRENCY_CODE = "SEK";
+    public static int ACCOUNT_NUMBER_LENGTH = 6;
+
     private static final long serialVersionUID = -2174361050351122055L;
 
     public BankAccount(UUID userId) {
-
-        this.name = DEFAULT_NAME;
+        this.name = "Main Account";
         this.accountId = UUID.randomUUID();
         this.userId = userId;
         this.accountNumber = generateAccountNumber();
         this.balance = BigDecimal.ZERO;
-        this.currency = Currency.getInstance(CURRENCY_CODE);
-//        this.transactionsHistory = getTransactionsHistory();
+        this.currency = Currency.getInstance("SEK");
+        this.transactionsHistory = new ArrayList<>();
     }
-
-//    private List<Transaction> getTransactionsHistory() {
-//
-//    }
 
     public String getName() {
         return name;
@@ -68,10 +63,9 @@ public class BankAccount implements Serializable {
             ConsoleMessage.showErrorMessage("Balance cannot be negative.");
         }
         else {
-            Storage storage = ObjectFactory.getStorage();
             this.balance = balance;
-            System.out.println("This " + this.balance);
-            System.out.println("This id " + this.getAccountId());
+            Storage storage = ObjectFactory.getStorage();
+
             storage.updateAccount(this);
         }
     }
@@ -84,13 +78,20 @@ public class BankAccount implements Serializable {
         NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.getDefault());
         numberFormat.setGroupingUsed(true);
         String formattedBalance = numberFormat.format(balance);
-        String formattedAmount = formattedBalance + " " + currency.getSymbol();
 
-        return formattedAmount;
+        return  formattedBalance + " " + currency.getSymbol();
     }
 
+    public List<Transaction> getTransactionsHistory() {
+        return transactionsHistory;
+    }
+
+    public void setTransactionsHistory(ArrayList<Transaction> transactions) {
+        this.transactionsHistory = transactions;
+    }
+
+
     private String generateAccountNumber() {
-        int ACCOUNT_NUMBER_LENGTH = 6;
         int CHECKSUM_LENGTH = 2;
 
         StringBuilder accountNumber = new StringBuilder();

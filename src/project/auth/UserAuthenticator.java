@@ -8,7 +8,6 @@ public class UserAuthenticator {
     public UserAuthenticator() {
        this.validator = ObjectFactory.getValidator();
     }
-
     public boolean logIn(User user, String password) {
         return validator.validatePassword(user.getPassword(), password);
     }

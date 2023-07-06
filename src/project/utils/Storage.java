@@ -30,21 +30,46 @@ public class Storage {
         fileManager.writeObjects(USERS_FILE, users);
     }
 
+    public User getUserByAccountId(UUID accountId) {
+        List<BankAccount> accounts = getAccounts();
+
+        for (BankAccount account : accounts) {
+            if (account.getAccountId().equals(accountId)) {
+                UUID userId = account.getUserId();
+                return getUserById(userId);
+            }
+        }
+        return null;
+    }
+
+    public User getUserById(UUID userId) {
+        List<User> users = getUsers();
+
+        for (User user : users) {
+            if (user.getId().equals(userId)) {
+                return user;
+            }
+        }
+
+        return null;
+    }
+
     public ArrayList<BankAccount> getAccounts() {
         return fileManager.readObjects(ACCOUNTS_FILE);
     }
 
-    public void updateAccount(BankAccount account) {
+    public void updateAccount(BankAccount updatedAccount) {
         ArrayList<BankAccount> accounts = getAccounts();
+
         for(int i = 0; i < accounts.size(); i++) {
-            BankAccount currentAccount = accounts.get(i);
-            if(currentAccount.getAccountId().equals(account.getAccountId())) {
-                System.out.println("Account " + currentAccount.getAccountId());
-                System.out.println("Account balance" + currentAccount.getBalance());
-                accounts.set(i, currentAccount);
+            BankAccount account = accounts.get(i);
+
+            if(account.getAccountId().equals(updatedAccount.getAccountId())) {
+                accounts.set(i, updatedAccount);
                 fileManager.writeObjects(ACCOUNTS_FILE, accounts);
                 return;
             }
+
         }
     }
 
@@ -96,7 +121,10 @@ public class Storage {
         ArrayList<Transaction> userTransactions = new ArrayList<>();
 
         for(Transaction transaction : transactions) {
-            if(transaction.senderAccountId() == accountId || transaction.recipientAccountId() == accountId) {
+            UUID senderAccountId = transaction.senderAccountId();
+            UUID recipientAccountId =  transaction.recipientAccountId();
+
+            if(senderAccountId.equals(accountId) || (recipientAccountId != null && recipientAccountId.equals(accountId))) {
                 userTransactions.add(transaction);
             }
         }

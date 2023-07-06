@@ -29,61 +29,45 @@ public class HomeMenu extends Menu {
     }
 
     public void run() {
-        displayMenu();
-        handleUserChoice();
+        showMenu();
     }
 
     @Override
     protected String getHeader() {
         return header;
     }
-
     @Override
     public void handleUserChoice() {
         String input = scanner.nextLine();
-        if (input.equalsIgnoreCase("exit")) {
-            registerSuccessMessage();
-            return;
-        }
-
         try {
             int selectedOption = Integer.parseInt(input.trim());
-            if (selectedOption > 0 && selectedOption <= options.size()) {
-                switch (selectedOption) {
-                   case 1 -> {
-                     User user = loginUser();
-                       if (user != null) {
-                           CustomerMenu customerMenu = ObjectFactory.getUserMenu(user);
-                           customerMenu.run();
-                       }
-                       else {
-                           run();
-                       }
-                 }
-                 case 2 -> {
-                     User newUser = registerUser();
+            switch (selectedOption) {
+                case 1 -> {
+                    User currentUser = loginUser();
+                        if (currentUser != null) {
+                            runCustomerMenu(currentUser);
+                        }
+                    }
+                    case 2 -> {
+                        User newUser = registerUser();
 
-                     if (newUser != null) {
-                         CustomerMenu customerMenu = ObjectFactory.getUserMenu(newUser);
-                         customerMenu.run();
-                     } else {
-                         run();
-                     }
-
-                 }
+                        if (newUser != null) {
+                            runCustomerMenu(newUser);
+                        }
+                    }
                     case 3 -> exit();
-                   default -> showInvalidOptionMessage();
+                    default -> showInvalidOptionMessage();
                 }
-            }
-            else {
-                showInvalidOptionMessage();
-                handleUserChoice();
-            }
         }
         catch (NumberFormatException exception) {
             showInvalidOptionMessage();
-            handleUserChoice();
         }
+        handleUserChoice();
+    }
+
+    private void runCustomerMenu(User user) {
+        CustomerMenu customerMenu = ObjectFactory.getUserMenu(user);
+        customerMenu.run();
     }
 
     private User registerUser() {
@@ -92,17 +76,20 @@ public class HomeMenu extends Menu {
 
         while (true) {
             String fullName = getUserInput(FULLNAME_REQUEST);
-            if(fullName == null) {
+            if (shouldReturnToMenu(fullName)) {
+                returnToMenu();
                 return null;
             }
 
             String socialNumber = getUserInput(SOCIAL_NUMBER_REQUEST);
-            if(socialNumber == null) {
+            if (shouldReturnToMenu(socialNumber)) {
+                returnToMenu();
                 return null;
             }
 
             String password = getUserPassword(PASSWORD_REQUEST);
-            if(password == null) {
+            if (shouldReturnToMenu(password)) {
+                returnToMenu();
                 return null;
             }
 
@@ -129,11 +116,14 @@ public class HomeMenu extends Menu {
 
         while(true) {
             String socialNumber = getUserInput(SOCIAL_NUMBER_REQUEST);
-            if(socialNumber == null) {
+            if (shouldReturnToMenu(socialNumber)) {
+                returnToMenu();
                 return null;
             }
+
             String password = getUserPassword(PASSWORD_REQUEST);
-            if(password == null) {
+            if (shouldReturnToMenu(password)) {
+                returnToMenu();
                 return null;
             }
 
@@ -143,12 +133,14 @@ public class HomeMenu extends Menu {
             }
 
             user = storage.getUserBySocialNumber(socialNumber);
+
             if (user == null) {
                 userNotFoundWarning();
                 continue;
             }
 
             boolean isLoggedIn = userAuth.logIn(user, password);
+
             if (isLoggedIn) {
                 loginSuccessMessage();
                 return user;
@@ -158,7 +150,6 @@ public class HomeMenu extends Menu {
             }
         }
     }
-
 
     private String getUserPassword(String message) {
         Console console = System.console();
