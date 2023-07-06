@@ -147,6 +147,7 @@ public class CustomerMenu extends Menu {
             try {
                 BigDecimal newBalance = userAccount.getBalance().add(amount);
                 userAccount.setBalance(newBalance);
+                storage.updateAccount(userAccount);
 
                 saveTransaction(userAccountId, null, amount, userAccount.getCurrency());
                 userAccount.setTransactionsHistory(storage.getAccountTransactionsHistory(userAccountId));
@@ -170,20 +171,27 @@ public class CustomerMenu extends Menu {
                 continue;
             }
 
-            try {
-                BigDecimal newBalance = userAccount.getBalance().subtract(amount);
-                if(newBalance.compareTo(BigDecimal.ZERO) >= 0) {
-                    userAccount.setBalance(newBalance);
-                }
+            BigDecimal newBalance = userAccount.getBalance().subtract(amount);
+            if (newBalance.compareTo(BigDecimal.ZERO) < 0) {
+                ConsoleMessage.showErrorMessage("Insufficient funds in the account. Withdrawal failed.");
+                return;
+            }
 
+            try {
                 saveTransaction(userAccountId, null, amount, userAccount.getCurrency());
                 userAccount.setTransactionsHistory(storage.getAccountTransactionsHistory(userAccountId));
+
+                userAccount.setBalance(newBalance);
+                storage.updateAccount(userAccount);
 
                 ConsoleMessage.showSuccessMessage("Withdrawal successful. New balance: " + userAccount.getFormattedBalance());
                 break;
             }
             catch (NumberFormatException e) {
                 ConsoleMessage.showErrorMessage("Invalid amount entered. Please enter a valid number.");
+            }
+            catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -287,6 +295,8 @@ public class CustomerMenu extends Menu {
 
         senderAccount.setBalance(senderAccount.getBalance().subtract(amount));
         recipientAccount.setBalance(recipientAccount.getBalance().add(amount));
+        storage.updateAccount(senderAccount);
+        storage.updateAccount(recipientAccount);
         senderAccount.setTransactionsHistory(storage.getAccountTransactionsHistory(senderAccountId));
         recipientAccount.setTransactionsHistory(storage.getAccountTransactionsHistory(recipientAccountId));
 

@@ -6,11 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="add content WIP">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/account/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/account/BankAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/auth/Auth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/auth/UserRegistrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/auth/UserRegistrator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/data/accounts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/data/accounts.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/data/transactions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/data/transactions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/data/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/data/users.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/ui/CustomerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/ui/CustomerMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/utils/ConsoleMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/utils/ConsoleMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/utils/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/utils/Storage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +112,21 @@
       <option name="project" value="LOCAL" />
       <updated>1688665660768</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add content WIP">
+      <created>1688667713686</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688667713686</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add content WIP">
+      <created>1688667998347</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1688667998347</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

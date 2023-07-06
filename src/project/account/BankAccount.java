@@ -1,9 +1,5 @@
 package project.account;
 
-import project.utils.ConsoleMessage;
-import project.utils.ObjectFactory;
-import project.utils.Storage;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.*;
@@ -59,14 +55,9 @@ public class BankAccount implements Serializable {
 
     public void setBalance(BigDecimal balance) {
         if(balance.compareTo(BigDecimal.ZERO) < 0) {
-            ConsoleMessage.showErrorMessage("Balance cannot be negative."); //exception
+            throw new IllegalArgumentException("Balance cannot be negative.");
         }
-        else {
-            this.balance = balance;
-            Storage storage = ObjectFactory.getStorage();// refactor till class that uses this code
-
-            storage.updateAccount(this);
-        }
+        this.balance = balance;
     }
 
     public Currency getCurrency() {
@@ -81,9 +72,6 @@ public class BankAccount implements Serializable {
         return  formattedBalance + " " + currency.getSymbol();
     }
 
-    public List<Transaction> getTransactionsHistory() { // if the storage works ok, use this method in Customer menu?
-        return transactionsHistory;
-    }
 
     public void setTransactionsHistory(ArrayList<Transaction> transactions) {
         this.transactionsHistory = transactions;

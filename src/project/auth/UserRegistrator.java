@@ -6,10 +6,9 @@ import project.utils.Storage;
 import project.utils.ObjectFactory;
 
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 
 
-public class UserRegistrator extends Auth {
+public class UserRegistrator {
     private Storage storage;
     private Validator validator;
 
@@ -24,8 +23,8 @@ public class UserRegistrator extends Auth {
             invalidSocialNumberWarning();
             return null;
         }
-        ArrayList<User> users = storage.getUsers();
-        User user = findUser(users, socialNumber);
+
+        User user = storage.getUserBySocialNumber(socialNumber);
 
         if(user != null) {
             registrationFailedMessage();
