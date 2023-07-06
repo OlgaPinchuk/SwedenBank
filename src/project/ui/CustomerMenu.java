@@ -32,8 +32,7 @@ public class CustomerMenu extends Menu {
         super(instruction, options);
         this.storage = ObjectFactory.getStorage();
         this.user = storage.getUserBySocialNumber(user.getSocialNumber());
-      //  this.user = user;
-        this.userAccounts = storage.getAccountsByUserId(user.getId());
+       this.userAccounts = storage.getAccountsByUserId(user.getId());
     }
 
     public void run() {
