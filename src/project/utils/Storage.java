@@ -53,6 +53,15 @@ public class Storage {
 
         return null;
     }
+    public User getUserBySocialNumber(String socialNumber) {
+        var users = getUsers();
+        for(User user : users) {
+            if(user.getSocialNumber().equals(socialNumber)) {
+                return user;
+            }
+        }
+        return null;
+    }
 
     public ArrayList<BankAccount> getAccounts() {
         return fileManager.readObjects(ACCOUNTS_FILE);
@@ -69,7 +78,6 @@ public class Storage {
                 fileManager.writeObjects(ACCOUNTS_FILE, accounts);
                 return;
             }
-
         }
     }
 
@@ -79,15 +87,6 @@ public class Storage {
         fileManager.writeObjects(ACCOUNTS_FILE, accounts);
     }
 
-    public User getUserBySocialNumber(String socialNumber) {
-        var users = getUsers();
-        for(User user : users) {
-            if(user.getSocialNumber().equals(socialNumber)) {
-                return user;
-            }
-        }
-        return null;
-    }
     public ArrayList<BankAccount> getAccountsByUserId(UUID userId) {
         ArrayList<BankAccount> userAccounts = new ArrayList<>();
         for(BankAccount account : getAccounts() ) {

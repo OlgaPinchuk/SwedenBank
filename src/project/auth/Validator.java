@@ -1,5 +1,6 @@
 package project.auth;
 
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 
 public class Validator {
@@ -19,7 +20,7 @@ public class Validator {
         return age >= MINIMUM_AGE;
     }
 
-    public boolean validatePassword(String storedPassword, String userInputPassword) {
+    public boolean validatePassword(String storedPassword, String userInputPassword) throws NoSuchAlgorithmException {
         String hashedPassword = PasswordHasher.hashPassword(userInputPassword);
         return storedPassword.equals(hashedPassword);
     }

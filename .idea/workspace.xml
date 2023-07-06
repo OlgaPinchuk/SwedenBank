@@ -4,18 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="add structure">
+    <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="add content">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/account/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/account/BankAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/account/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/account/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/auth/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/auth/Auth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/auth/PasswordHasher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/auth/PasswordHasher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/auth/UserAuthenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/auth/UserAuthenticator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/auth/UserRegistrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/auth/UserRegistrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/auth/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/auth/Validator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/data/accounts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/data/accounts.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/data/transactions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/data/transactions.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/data/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/data/users.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/ui/CustomerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/ui/CustomerMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/ui/HomeMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/ui/HomeMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/ui/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/ui/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/utils/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/utils/FileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/utils/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/utils/Storage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,18 +50,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/olgapinchuk/.bitnami/stackman/machines/xampp/volumes/root/htdocs/ Novare/backend_course/SwedenBank/src/project/utils&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/olgapinchuk/.bitnami/stackman/machines/xampp/volumes/root/htdocs/ Novare/backend_course/SwedenBank/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/Users/olgapinchuk/.bitnami/stackman/machines/xampp/volumes/root/htdocs/ Novare/backend_course/SwedenBank/src/project/utils",
+    "onboarding.tips.debug.path": "/Users/olgapinchuk/.bitnami/stackman/machines/xampp/volumes/root/htdocs/ Novare/backend_course/SwedenBank/src/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/project/utils" />
@@ -102,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688566776254</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add content">
+      <created>1688653134557</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1688653134557</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,7 +128,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init project" />
     <MESSAGE value="add structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="add structure" />
+    <MESSAGE value="add content" />
+    <option name="LAST_COMMIT_MESSAGE" value="add content" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

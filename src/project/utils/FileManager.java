@@ -42,8 +42,7 @@ public class FileManager {
             output.writeObject(objects);
             output.close();
             file.close();
-
-            System.out.println("Data saved.");
+            
         } catch (IOException e) {
             System.out.println("Error while writing data to the file: " + e.getMessage());
         }

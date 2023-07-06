@@ -17,7 +17,6 @@ public class BankAccount implements Serializable {
 
     private UUID userId;
     private BigDecimal balance;
-
     private Currency currency;
     private List<Transaction> transactionsHistory;
     public static int ACCOUNT_NUMBER_LENGTH = 6;
@@ -60,11 +59,11 @@ public class BankAccount implements Serializable {
 
     public void setBalance(BigDecimal balance) {
         if(balance.compareTo(BigDecimal.ZERO) < 0) {
-            ConsoleMessage.showErrorMessage("Balance cannot be negative.");
+            ConsoleMessage.showErrorMessage("Balance cannot be negative."); //exception
         }
         else {
             this.balance = balance;
-            Storage storage = ObjectFactory.getStorage();
+            Storage storage = ObjectFactory.getStorage();// refactor till class that uses this code
 
             storage.updateAccount(this);
         }
@@ -82,7 +81,7 @@ public class BankAccount implements Serializable {
         return  formattedBalance + " " + currency.getSymbol();
     }
 
-    public List<Transaction> getTransactionsHistory() {
+    public List<Transaction> getTransactionsHistory() { // if the storage works ok, use this method in Customer menu?
         return transactionsHistory;
     }
 
@@ -90,8 +89,7 @@ public class BankAccount implements Serializable {
         this.transactionsHistory = transactions;
     }
 
-
-    private String generateAccountNumber() {
+    private static String generateAccountNumber() {
         int CHECKSUM_LENGTH = 2;
 
         StringBuilder accountNumber = new StringBuilder();
@@ -111,7 +109,7 @@ public class BankAccount implements Serializable {
         return accountNumber.toString();
     }
 
-    private int generateCheckSum(String accountNumber) {
+    private static int generateCheckSum(String accountNumber) {
         int sum = 0;
         for(char digit : accountNumber.toCharArray()) {
             sum += Character.getNumericValue(digit);

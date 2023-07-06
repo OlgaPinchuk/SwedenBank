@@ -5,6 +5,7 @@ import project.utils.ConsoleMessage;
 import project.utils.Storage;
 import project.utils.ObjectFactory;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 
@@ -17,7 +18,7 @@ public class UserRegistrator extends Auth {
         this.validator = ObjectFactory.getValidator();
     }
 
-    public User register(String fullName, String socialNumber, String password) {
+    public User register(String fullName, String socialNumber, String password) throws NoSuchAlgorithmException {
         if(!validator.validateSocialNumber(socialNumber) || !validator.validateUserAge(socialNumber)) {
             registrationFailedMessage();
             invalidSocialNumberWarning();

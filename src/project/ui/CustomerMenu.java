@@ -11,7 +11,6 @@ import java.util.*;
 
 public class CustomerMenu extends Menu {
     private User user;
-    private Scanner scanner;
     private  Storage storage;
     private List<BankAccount> userAccounts;
     private final static String instruction = "Please select an option:";
@@ -28,8 +27,8 @@ public class CustomerMenu extends Menu {
         super(instruction, options);
         this.storage = ObjectFactory.getStorage();
         this.user = storage.getUserBySocialNumber(user.getSocialNumber());
+      //  this.user = user;
         this.userAccounts = storage.getAccountsByUserId(user.getId());
-        this.scanner = new Scanner(System.in);
     }
 
     public void run() {
@@ -51,6 +50,7 @@ public class CustomerMenu extends Menu {
                 case 3 -> printTransactionsHistory();
                 case 4 -> depositMoney();
                 case 5 -> withdrawMoney();
+                // logout
                 case 6 -> exit();
                 default -> showInvalidOptionMessage();
             }
@@ -94,7 +94,7 @@ public class CustomerMenu extends Menu {
             String balance = account.getFormattedBalance();
             List<String> newRow = List.of(accountName, balance);
             rows.add(newRow);
-        };
+        }
 
         new Table(columnsWidth, headers, rows);
 

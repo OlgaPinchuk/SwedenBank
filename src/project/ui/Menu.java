@@ -7,13 +7,15 @@ import java.util.Scanner;
 
 public abstract class Menu {
      protected String instruction;
-     private List<String> options;
+     protected List<String> options;
+     protected Scanner scanner;
 
-     private Menu() {}
+//     private Menu() {}
 
      public Menu(String instruction, List<String> options) {
           this.instruction = instruction;
           this.options = options;
+          this.scanner = new Scanner(System.in);
      }
 
      abstract void handleUserChoice();

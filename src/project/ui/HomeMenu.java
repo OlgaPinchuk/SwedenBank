@@ -6,26 +6,19 @@ import project.utils.ConsoleMessage;
 import project.utils.ObjectFactory;
 import project.utils.Storage;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 import java.io.Console;
 
 public class HomeMenu extends Menu {
     private final String header = "Welcome to the Bank App!";
     private final static String instruction = "Please select an option:";
     private final static List<String> options = Arrays.asList("Log In", "Register", "Exit");
-
-    private final String FULLNAME_REQUEST = "Enter your full name (or type 'exit' to return to the previous menu): ";
+    private final String FULL_NAME_REQUEST = "Enter your full name (or type 'exit' to return to the previous menu): ";
     private final String SOCIAL_NUMBER_REQUEST = "Enter your social security number in the following format 'yyyy-abc' (or type 'exit' to return to the previous menu): ";
-    private final String PASSWORD_REQUEST = "Enter your password (or type 'exit' to return to the previous menu): ";
-
-
-    private Scanner scanner;
-
     public HomeMenu() {
         super(instruction, options);
-        this.scanner = new Scanner(System.in);
     }
 
     public void run() {
@@ -61,6 +54,9 @@ public class HomeMenu extends Menu {
         }
         catch (NumberFormatException exception) {
             showInvalidOptionMessage();
+        } catch (NoSuchAlgorithmException e) {
+            ConsoleMessage.showErrorMessage("Hashing password is failed.");
+            throw new RuntimeException(e);
         }
         handleUserChoice();
     }
@@ -70,12 +66,12 @@ public class HomeMenu extends Menu {
         customerMenu.run();
     }
 
-    private User registerUser() {
-        UserRegistrator userRegistrator = new UserRegistrator();
+    private User registerUser() throws NoSuchAlgorithmException {
+        UserRegistrator userRegistrator = ObjectFactory.createUserRegistrator();
         User newUser;
 
         while (true) {
-            String fullName = getUserInput(FULLNAME_REQUEST);
+            String fullName = getUserInput(FULL_NAME_REQUEST);
             if (shouldReturnToMenu(fullName)) {
                 returnToMenu();
                 return null;
@@ -87,7 +83,7 @@ public class HomeMenu extends Menu {
                 return null;
             }
 
-            String password = getUserPassword(PASSWORD_REQUEST);
+            String password = getUserPassword();
             if (shouldReturnToMenu(password)) {
                 returnToMenu();
                 return null;
@@ -101,7 +97,7 @@ public class HomeMenu extends Menu {
             newUser = userRegistrator.register(fullName, socialNumber, password);
 
             if (newUser != null) {
-               ConsoleMessage.showSuccessMessage("User registered successfully.");
+                ConsoleMessage.showSuccessMessage("User registered successfully.");
                 break;
             }
         }
@@ -111,7 +107,7 @@ public class HomeMenu extends Menu {
 
     private User loginUser() {
         Storage storage = ObjectFactory.getStorage();
-        UserAuthenticator userAuth = new UserAuthenticator();
+        UserAuthenticator userAuth = ObjectFactory.createUserAuthenticator();
         User user;
 
         while(true) {
@@ -121,7 +117,7 @@ public class HomeMenu extends Menu {
                 return null;
             }
 
-            String password = getUserPassword(PASSWORD_REQUEST);
+            String password = getUserPassword();
             if (shouldReturnToMenu(password)) {
                 returnToMenu();
                 return null;
@@ -135,45 +131,37 @@ public class HomeMenu extends Menu {
             user = storage.getUserBySocialNumber(socialNumber);
 
             if (user == null) {
-                userNotFoundWarning();
+                ConsoleMessage.showErrorMessage("User not found. Please check your social number and try again.");
                 continue;
             }
 
-            boolean isLoggedIn = userAuth.logIn(user, password);
+            boolean isLoggedIn;
+            try {
+                isLoggedIn = userAuth.logIn(user, password);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
 
             if (isLoggedIn) {
-                loginSuccessMessage();
+                ConsoleMessage.showSuccessMessage("Login successful! Welcome!");
                 return user;
             }
             else {
-                invalidPasswordWarning();
+                ConsoleMessage.showErrorMessage("Invalid password. Please try again.");
             }
         }
     }
 
-    private String getUserPassword(String message) {
+    private String getUserPassword() {
+       String request = "Enter your password (or type 'exit' to return to the previous menu):";
         Console console = System.console();
         if (console != null) {
-            System.out.print(message);
+            System.out.print(request);
             char[] passwordChars = console.readPassword();
             return new String(passwordChars);
         } else {
-            return getUserInput(message);
+            return getUserInput(request);
         }
     }
 
-    private void invalidPasswordWarning() {
-       ConsoleMessage.showErrorMessage("Invalid password. Please try again.");
-    }
-
-    private void userNotFoundWarning() {
-       ConsoleMessage.showErrorMessage("User not found. Please check your social number and try again.");
-    }
-    private void loginSuccessMessage() {
-        ConsoleMessage.showSuccessMessage("Login successful! Welcome!");
-    }
-
-    private void registerSuccessMessage() {
-        ConsoleMessage.showSuccessMessage("User registered successfully.");
-    }
 }
