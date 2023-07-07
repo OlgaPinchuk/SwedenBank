@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="refactoring">
-      <change beforePath="$PROJECT_DIR$/src/data/accounts.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/customers.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/transactions.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/utils/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/utils/Storage.java" afterDir="false" />
-    </list>
+    <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="refactoring" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,8 +51,8 @@
     "create.test.in.the.same.root": "true",
     "last_opened_file_path": "/Users/olgapinchuk/.bitnami/stackman/machines/xampp/volumes/root/htdocs/ Novare/backend_course/SwedenBank/src/project/utils",
     "onboarding.tips.debug.path": "/Users/olgapinchuk/.bitnami/stackman/machines/xampp/volumes/root/htdocs/ Novare/backend_course/SwedenBank/src/Main.java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
@@ -255,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688755564953</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="refactoring">
+      <created>1688755937287</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1688755937287</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
