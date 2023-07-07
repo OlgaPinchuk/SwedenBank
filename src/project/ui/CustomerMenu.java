@@ -149,7 +149,7 @@ public class CustomerMenu extends Menu {
                 userAccount.setBalance(newBalance);
                 storage.updateAccount(userAccount);
 
-                saveTransaction(userAccountId, null, amount, userAccount.getCurrency());
+                saveTransaction(userAccountId, null, amount, userAccount.getCurrency(), TransactionType.DEPOSIT);
                 userAccount.setTransactionsHistory(storage.getAccountTransactionsHistory(userAccountId));
 
                 ConsoleMessage.showSuccessMessage("Deposit successful. New balance: " + userAccount.getFormattedBalance());
@@ -160,6 +160,78 @@ public class CustomerMenu extends Menu {
             }
         }
     }
+
+    private void printTransactionsHistory() {
+        BankAccount userAccount = storage.getAccountsByUserId(user.getId()).get(0);
+        List<Transaction> transactions = storage.getAccountTransactionsHistory(userAccount.getAccountId());
+
+        if (transactions.size() == 0) {
+            ConsoleMessage.showInfoMessage("No transactions found.");
+            return;
+        }
+
+        List<Integer> columnsWidth = List.of(20, 15, 30);
+        List<String> headers = List.of("Date", "Sum", "Sender");
+        List<List<String>> rows = new ArrayList<>();
+
+        for (Transaction transaction : transactions) {
+            String date = transaction.date().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            String sum = formatAmountWithSign(transaction);
+            String sender = getTransactionLabel(transaction);
+
+            List<String> newRow = List.of(date, sum, sender);
+            rows.add(newRow);
+        }
+
+        new Table(columnsWidth, headers, rows);
+        printBlankLine();
+    }
+
+    private String formatAmountWithSign(Transaction transaction) {
+        BankAccount userAccount = userAccounts.get(0);
+        BigDecimal amount = transaction.amount();
+        TransactionType transactionType = transaction.transactionType();
+        String transactionSign;
+
+
+        switch (transactionType) {
+            case WITHDRAWAL -> transactionSign = "-";
+            case DEPOSIT -> transactionSign = "+";
+            case TRANSFER -> {
+                if (transaction.senderAccountId().equals(userAccount.getAccountId())) {
+                    transactionSign = "-";
+                } else {
+                    transactionSign = "+";
+                }
+            }
+            default -> transactionSign = "";
+        }
+
+        return transactionSign + amount.toString();
+    }
+
+    private String getTransactionLabel(Transaction transaction) {
+        TransactionType transactionType = transaction.transactionType();
+
+        switch (transactionType) {
+            case WITHDRAWAL:
+                return "Withdraw";
+            case DEPOSIT:
+                return "Deposit";
+            case TRANSFER:
+                UUID senderAccountId = transaction.senderAccountId();
+                UUID recipientAccountId = transaction.recipientAccountId();
+
+                if (senderAccountId.equals(userAccounts.get(0).getAccountId())) {
+                    return storage.getUserByAccountId(senderAccountId).getFullName();
+                } else {
+                    return storage.getUserByAccountId(recipientAccountId).getFullName();
+                }
+            default:
+                return "Unknown";
+        }
+    }
+
 
     private void withdrawMoney() {
         BankAccount userAccount = userAccounts.get(0); // In this sprint a user has 1 account.
@@ -178,7 +250,7 @@ public class CustomerMenu extends Menu {
             }
 
             try {
-                saveTransaction(userAccountId, null, amount, userAccount.getCurrency());
+                saveTransaction(userAccountId, null, amount, userAccount.getCurrency(), TransactionType.WITHDRAWAL);
                 userAccount.setTransactionsHistory(storage.getAccountTransactionsHistory(userAccountId));
 
                 userAccount.setBalance(newBalance);
@@ -222,6 +294,7 @@ public class CustomerMenu extends Menu {
 
         performMoneyTransfer(senderAccount, recipientAccount, amount);
     }
+
 
     private void logout() {
         ConsoleMessage.clearConsole();
@@ -281,8 +354,8 @@ public class CustomerMenu extends Menu {
         }
     }
 
-    private void saveTransaction(UUID senderAccountId, UUID recipientAccountId, BigDecimal amount, Currency currency) {
-        Transaction transaction = new Transaction(senderAccountId, recipientAccountId, LocalDateTime.now(), amount, currency);
+    private void saveTransaction(UUID senderAccountId, UUID recipientAccountId, BigDecimal amount, Currency currency, TransactionType type) {
+        Transaction transaction = new Transaction(senderAccountId, recipientAccountId, LocalDateTime.now(), amount, currency, type);
         storage.saveTransaction(transaction);
     }
 
@@ -291,7 +364,7 @@ public class CustomerMenu extends Menu {
         UUID recipientAccountId = recipientAccount.getAccountId();
         Currency currency = senderAccount.getCurrency();
 
-        saveTransaction(senderAccountId, recipientAccountId, amount, currency);
+        saveTransaction(senderAccountId, recipientAccountId, amount, currency, TransactionType.TRANSFER);
 
         senderAccount.setBalance(senderAccount.getBalance().subtract(amount));
         recipientAccount.setBalance(recipientAccount.getBalance().add(amount));
@@ -303,31 +376,5 @@ public class CustomerMenu extends Menu {
         ConsoleMessage.showSuccessMessage("Money transfer successful.");
     }
 
-    private void printTransactionsHistory() {
-        BankAccount userAccount = storage.getAccountsByUserId(user.getId()).get(0);
-        List<Transaction> transactions = storage.getAccountTransactionsHistory(userAccount.getAccountId());
-
-        if(transactions.size() == 0) {
-            ConsoleMessage.showInfoMessage("No transactions found.");
-            return;
-        }
-
-        List<Integer> columnsWidth = List.of(20, 15, 30);
-        List<String> headers = List.of("Date", "Sum", "Sender");
-        List<List<String>> rows = new ArrayList<>();
-
-
-        for (Transaction transaction : transactions) {
-            String date = transaction.date().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-            String sum = transaction.amount().toString();
-            String sender = transaction.recipientAccountId() == null ? "Deposit" : storage.getUserByAccountId(transaction.senderAccountId()).getFullName();
-
-            List<String> newRow = List.of(date, sum, sender);
-            rows.add(newRow);
-        }
-        new Table(columnsWidth, headers, rows);
-        printBlankLine();
-
-    }
 
 }

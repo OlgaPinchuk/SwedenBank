@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class Storage {
-    private FileManager fileManager;
+    private final FileManager fileManager;
     private final String USERS_FILE = "src/project/data/users.txt";
     private final String ACCOUNTS_FILE = "src/project/data/accounts.txt";
 

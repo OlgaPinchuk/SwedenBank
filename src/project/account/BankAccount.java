@@ -72,7 +72,6 @@ public class BankAccount implements Serializable {
         return  formattedBalance + " " + currency.getSymbol();
     }
 
-
     public void setTransactionsHistory(ArrayList<Transaction> transactions) {
         this.transactionsHistory = transactions;
     }

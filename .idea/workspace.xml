@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="add content WIP">
+      <change afterPath="$PROJECT_DIR$/src/project/account/TransactionType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/account/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/account/BankAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/auth/Auth.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/auth/UserRegistrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/auth/UserRegistrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/account/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/account/Transaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/data/accounts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/data/accounts.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/data/transactions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/data/transactions.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/data/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/data/users.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/data/transactions.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/ui/CustomerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/ui/CustomerMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/utils/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/utils/Storage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +23,7 @@
       <list>
         <option value="Class" />
         <option value="Record" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -126,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688667998347</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add content WIP">
+      <created>1688670571734</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1688670571734</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
