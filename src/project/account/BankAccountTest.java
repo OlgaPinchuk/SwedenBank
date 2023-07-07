@@ -15,7 +15,6 @@ class BankAccountTest {
         assertNotNull(accountNumber);
         assertEquals(6, accountNumber.length());
         assertTrue(accountNumber.matches("\\d{6}"));
-
     }
 
     @Test

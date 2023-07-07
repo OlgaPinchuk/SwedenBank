@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="refactoring and fixing">
-      <change afterPath="$PROJECT_DIR$/src/project/account/BankAccountTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/project/ui/CustomerMenuTest.java" afterDir="false" />
+    <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="refactoring and testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SwedenBank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SwedenBank.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/account/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/account/BankAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/ui/HomeMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/ui/HomeMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/utils/ObjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/utils/ObjectFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/account/BankAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/account/BankAccountTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +71,7 @@
       <recent name="project.account" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CustomerMenuTest.testDepositMoney">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="SwedenBank" />
@@ -150,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.CustomerMenuTest.testDepositMoney" />
         <item itemvalue="JUnit.CustomerMenuTest.testWithdrawMoney" />
         <item itemvalue="JUnit.BankAccountTest.testGenerateAccountNumber" />
         <item itemvalue="JUnit.BankAccountTest.testGenerateCheckSum" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -230,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688730270822</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="refactoring and testing">
+      <created>1688741257166</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1688741257166</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -250,7 +252,8 @@
     <MESSAGE value="add content" />
     <MESSAGE value="add content WIP" />
     <MESSAGE value="refactoring and fixing" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring and fixing" />
+    <MESSAGE value="refactoring and testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring and testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
