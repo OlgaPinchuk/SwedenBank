@@ -11,10 +11,10 @@ import java.util.UUID;
 
 public class Storage {
     private final FileManager fileManager;
-    private final String CUSTOMERS_FILE = "src/project/data/customers.txt";
-    private final String ACCOUNTS_FILE = "src/project/data/accounts.txt";
+    private final String CUSTOMERS_FILE = "data/customers.txt";
+    private final String ACCOUNTS_FILE = "data/accounts.txt";
 
-    private final String TRANSACTIONS_FILE = "src/project/data/transactions.txt";
+    private final String TRANSACTIONS_FILE = "data/transactions.txt";
 
     public Storage() {
         this.fileManager = new FileManager();

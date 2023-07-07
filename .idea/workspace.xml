@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="refactoring and testing">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/account/BankAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/account/BankAccountTest.java" afterDir="false" />
+    <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="refactoring">
+      <change beforePath="$PROJECT_DIR$/src/data/accounts.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/customers.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/transactions.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/utils/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/utils/Storage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +234,28 @@
       <option name="project" value="LOCAL" />
       <updated>1688741257166</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="refactoring and testing">
+      <created>1688746160966</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1688746160966</updated>
+    </task>
+    <task id="LOCAL-00012" summary="refactoring, update README">
+      <created>1688755391916</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1688755391916</updated>
+    </task>
+    <task id="LOCAL-00013" summary="refactoring">
+      <created>1688755564953</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1688755564953</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -253,7 +276,9 @@
     <MESSAGE value="add content WIP" />
     <MESSAGE value="refactoring and fixing" />
     <MESSAGE value="refactoring and testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring and testing" />
+    <MESSAGE value="refactoring, update README" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -268,8 +293,17 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/project/ui/CustomerMenu.java</url>
-          <line>160</line>
+          <line>159</line>
           <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/project/account/BankAccount.java</url>
+          <line>100</line>
+          <properties class="project.account.BankAccount" method="generateCheckSum">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
