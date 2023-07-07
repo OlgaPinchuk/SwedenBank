@@ -1,28 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="" />
+    <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="refactoring" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Record" />
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2Rq2Gj5uxOMUevYXE8pfmFNZ4wT" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "onboarding.tips.debug.path": "/Users/olgapinchuk/.bitnami/stackman/machines/xampp/volumes/root/htdocs/ Novare/backend_course/SwedenBank/src/Main.java"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "last_opened_file_path": "/Users/olgapinchuk/.bitnami/stackman/machines/xampp/volumes/root/htdocs/ Novare/backend_course/SwedenBank/src/project/utils",
+    "onboarding.tips.debug.path": "/Users/olgapinchuk/.bitnami/stackman/machines/xampp/volumes/root/htdocs/ Novare/backend_course/SwedenBank/src/Main.java",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/project/utils" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="project.ui" />
+      <recent name="project.account" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="SwedenBank" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BankAccountTest.testGenerateAccountNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SwedenBank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.account.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project.account" />
+      <option name="MAIN_CLASS_NAME" value="project.account.BankAccountTest" />
+      <option name="METHOD_NAME" value="testGenerateAccountNumber" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BankAccountTest.testGenerateCheckSum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SwedenBank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.account.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project.account" />
+      <option name="MAIN_CLASS_NAME" value="project.account.BankAccountTest" />
+      <option name="METHOD_NAME" value="testGenerateCheckSum" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerMenuTest.testDepositMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SwedenBank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project.ui" />
+      <option name="MAIN_CLASS_NAME" value="project.ui.CustomerMenuTest" />
+      <option name="METHOD_NAME" value="testDepositMoney" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerMenuTest.testWithdrawMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SwedenBank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project.ui" />
+      <option name="MAIN_CLASS_NAME" value="project.ui.CustomerMenuTest" />
+      <option name="METHOD_NAME" value="testWithdrawMoney" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.CustomerMenuTest.testDepositMoney" />
+        <item itemvalue="JUnit.CustomerMenuTest.testWithdrawMoney" />
+        <item itemvalue="JUnit.BankAccountTest.testGenerateAccountNumber" />
+        <item itemvalue="JUnit.BankAccountTest.testGenerateCheckSum" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -32,15 +159,153 @@
       <option name="presentableId" value="Default" />
       <updated>1687963196801</updated>
     </task>
+    <task id="LOCAL-00001" summary="init project">
+      <created>1687963361601</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687963361601</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add structure">
+      <created>1688566776254</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1688566776254</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add content">
+      <created>1688653134557</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1688653134557</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add content WIP">
+      <created>1688665660768</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688665660768</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add content WIP">
+      <created>1688667713686</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688667713686</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add content WIP">
+      <created>1688667998347</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1688667998347</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add content WIP">
+      <created>1688670571734</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1688670571734</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add content WIP">
+      <created>1688721224642</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1688721224642</updated>
+    </task>
+    <task id="LOCAL-00009" summary="refactoring and fixing">
+      <created>1688730270822</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688730270822</updated>
+    </task>
+    <task id="LOCAL-00010" summary="refactoring and testing">
+      <created>1688741257166</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1688741257166</updated>
+    </task>
+    <task id="LOCAL-00011" summary="refactoring and testing">
+      <created>1688746160966</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1688746160966</updated>
+    </task>
+    <task id="LOCAL-00012" summary="refactoring, update README">
+      <created>1688755391916</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1688755391916</updated>
+    </task>
+    <task id="LOCAL-00013" summary="refactoring">
+      <created>1688755564953</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1688755564953</updated>
+    </task>
+    <task id="LOCAL-00014" summary="refactoring">
+      <created>1688755937287</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1688755937287</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init project" />
+    <MESSAGE value="add structure" />
+    <MESSAGE value="add content" />
+    <MESSAGE value="add content WIP" />
+    <MESSAGE value="refactoring and fixing" />
+    <MESSAGE value="refactoring and testing" />
+    <MESSAGE value="refactoring, update README" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" log-message="true" type="java-exception">
+          <properties class="java.io.NotSerializableException" package="java.io" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/src/project/ui/CustomerMenu.java</url>
+          <line>159</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/project/account/BankAccount.java</url>
+          <line>100</line>
+          <properties class="project.account.BankAccount" method="generateCheckSum">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
