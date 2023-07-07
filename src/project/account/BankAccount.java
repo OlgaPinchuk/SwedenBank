@@ -98,7 +98,7 @@ public class BankAccount implements Serializable {
         return accountNumber.toString();
     }
 
-    private static int generateCheckSum(String accountNumber) {
+    static int generateCheckSum(String accountNumber) {
         int sum = 0;
         for(char digit : accountNumber.toCharArray()) {
             sum += Character.getNumericValue(digit);

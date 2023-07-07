@@ -7,9 +7,11 @@ import project.customer.Customer;
 public class ObjectFactory {
 
     private ObjectFactory() {}
+
     public static CustomerAuthenticator createCustomerAuthenticator() {
         return new CustomerAuthenticator();
     }
+
     public static CustomerRegistrator createCustomerRegistrator() {
         return new CustomerRegistrator();
     }

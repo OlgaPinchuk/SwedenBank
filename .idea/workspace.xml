@@ -4,21 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="add content WIP">
-      <change afterPath="$PROJECT_DIR$/src/project/utils/Utils.java" afterDir="false" />
+    <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="refactoring and fixing">
+      <change afterPath="$PROJECT_DIR$/src/project/account/BankAccountTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/project/ui/CustomerMenuTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SwedenBank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SwedenBank.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/account/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/account/BankAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/auth/UserAuthenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/auth/CustomerAuthenticator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/auth/UserRegistrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/auth/CustomerRegistrator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/auth/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/auth/Validator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/data/accounts.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/data/users.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/ui/CustomerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/ui/CustomerMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/ui/HomeMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/ui/HomeMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/ui/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/ui/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/customer/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/utils/ObjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/utils/ObjectFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/utils/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/utils/Storage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +24,7 @@
         <option value="Record" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -53,9 +47,16 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
     "last_opened_file_path": "/Users/olgapinchuk/.bitnami/stackman/machines/xampp/volumes/root/htdocs/ Novare/backend_course/SwedenBank/src/project/utils",
     "onboarding.tips.debug.path": "/Users/olgapinchuk/.bitnami/stackman/machines/xampp/volumes/root/htdocs/ Novare/backend_course/SwedenBank/src/Main.java",
     "project.structure.last.edited": "Project",
@@ -67,8 +68,15 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/project/utils" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="project.ui" />
+      <recent name="project.account" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.CustomerMenuTest.testDepositMoney">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="SwedenBank" />
@@ -76,8 +84,76 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BankAccountTest.testGenerateAccountNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SwedenBank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.account.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project.account" />
+      <option name="MAIN_CLASS_NAME" value="project.account.BankAccountTest" />
+      <option name="METHOD_NAME" value="testGenerateAccountNumber" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BankAccountTest.testGenerateCheckSum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SwedenBank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.account.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project.account" />
+      <option name="MAIN_CLASS_NAME" value="project.account.BankAccountTest" />
+      <option name="METHOD_NAME" value="testGenerateCheckSum" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerMenuTest.testDepositMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SwedenBank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project.ui" />
+      <option name="MAIN_CLASS_NAME" value="project.ui.CustomerMenuTest" />
+      <option name="METHOD_NAME" value="testDepositMoney" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerMenuTest.testWithdrawMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SwedenBank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="project.ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="project.ui" />
+      <option name="MAIN_CLASS_NAME" value="project.ui.CustomerMenuTest" />
+      <option name="METHOD_NAME" value="testWithdrawMoney" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CustomerMenuTest.testDepositMoney" />
+        <item itemvalue="JUnit.CustomerMenuTest.testWithdrawMoney" />
+        <item itemvalue="JUnit.BankAccountTest.testGenerateAccountNumber" />
+        <item itemvalue="JUnit.BankAccountTest.testGenerateCheckSum" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -147,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688721224642</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="refactoring and fixing">
+      <created>1688730270822</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688730270822</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -166,7 +249,8 @@
     <MESSAGE value="add structure" />
     <MESSAGE value="add content" />
     <MESSAGE value="add content WIP" />
-    <option name="LAST_COMMIT_MESSAGE" value="add content WIP" />
+    <MESSAGE value="refactoring and fixing" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring and fixing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

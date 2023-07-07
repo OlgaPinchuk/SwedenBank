@@ -15,8 +15,8 @@ public class HomeMenu extends Menu {
     private final String header = "Welcome to the SwedenBank App!";
     private final static String instruction = "Please select an option: ";
     private final static List<String> options = Arrays.asList("Log In", "Register", "Exit");
-    private final String FULL_NAME_REQUEST = "Enter your full name (or type 'exit' to return to the previous menu): ";
-    private final String SOCIAL_NUMBER_REQUEST = "Enter your social security number in the following format 'yyyy-abc' (or type 'exit' to return to the previous menu): ";
+    private final String FULL_NAME_REQUEST = "Full name (or type 'exit' to return): ";
+    private final String SOCIAL_NUMBER_REQUEST = "Social security number (in format 'yyyy-abc') (or type 'exit' to return): ";
     public HomeMenu() {
         super(instruction, options);
     }
@@ -149,7 +149,7 @@ public class HomeMenu extends Menu {
     }
 
     private String getCustomerPassword() {
-       String request = "Enter your password (or type 'exit' to return to the previous menu): ";
+       String request = "Password (or type 'exit' to return): ";
         Console console = System.console();
         if (console != null) {
             System.out.print(request);
