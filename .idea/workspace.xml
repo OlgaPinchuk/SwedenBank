@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b42d732-ecac-4303-8a9f-62096dc5c552" name="Changes" comment="add content WIP">
-      <change afterPath="$PROJECT_DIR$/src/project/account/TransactionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/project/utils/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/account/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/account/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/data/accounts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/data/accounts.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/data/transactions.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/account/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/account/BankAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/auth/UserAuthenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/auth/CustomerAuthenticator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/auth/UserRegistrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/auth/CustomerRegistrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/auth/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/auth/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/data/accounts.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/data/users.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/ui/CustomerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/ui/CustomerMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/ui/HomeMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/ui/HomeMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/ui/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/ui/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/customer/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/utils/ObjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/utils/ObjectFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/utils/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/utils/Storage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,9 +28,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Record" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -133,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688670571734</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add content WIP">
+      <created>1688721224642</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1688721224642</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,6 +179,11 @@
           <properties class="java.io.NotSerializableException" package="java.io" />
           <option name="timeStamp" value="4" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/project/ui/CustomerMenu.java</url>
+          <line>160</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

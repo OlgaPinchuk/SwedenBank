@@ -5,5 +5,5 @@ import java.io.Serializable;
 public enum TransactionType implements Serializable {
     DEPOSIT,
     WITHDRAWAL,
-    TRANSFER;
+    TRANSFER
 }

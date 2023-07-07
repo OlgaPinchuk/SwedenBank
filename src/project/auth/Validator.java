@@ -20,8 +20,8 @@ public class Validator {
         return age >= MINIMUM_AGE;
     }
 
-    public boolean validatePassword(String storedPassword, String userInputPassword) throws NoSuchAlgorithmException {
-        String hashedPassword = PasswordHasher.hashPassword(userInputPassword);
+    public boolean validatePassword(String storedPassword, String inputPassword) throws NoSuchAlgorithmException {
+        String hashedPassword = PasswordHasher.hashPassword(inputPassword);
         return storedPassword.equals(hashedPassword);
     }
 

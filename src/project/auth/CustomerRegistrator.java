@@ -1,6 +1,6 @@
 package project.auth;
 
-import project.user.User;
+import project.customer.Customer;
 import project.utils.ConsoleMessage;
 import project.utils.Storage;
 import project.utils.ObjectFactory;
@@ -8,35 +8,35 @@ import project.utils.ObjectFactory;
 import java.security.NoSuchAlgorithmException;
 
 
-public class UserRegistrator {
+public class CustomerRegistrator {
     private Storage storage;
     private Validator validator;
 
-    public UserRegistrator() {
+    public CustomerRegistrator() {
         this.storage = ObjectFactory.getStorage();
         this.validator = ObjectFactory.getValidator();
     }
 
-    public User register(String fullName, String socialNumber, String password) throws NoSuchAlgorithmException {
+    public Customer register(String fullName, String socialNumber, String password) throws NoSuchAlgorithmException {
         if(!validator.validateSocialNumber(socialNumber) || !validator.validateUserAge(socialNumber)) {
             registrationFailedMessage();
             invalidSocialNumberWarning();
             return null;
         }
 
-        User user = storage.getUserBySocialNumber(socialNumber);
+        Customer customer = storage.getCustomerBySocialNumber(socialNumber);
 
-        if(user != null) {
+        if(customer != null) {
             registrationFailedMessage();
-            userExistWarning();
+            customerExistWarning();
             return null;
          }
 
         String hashedPassword = PasswordHasher.hashPassword(password);
-        User newUser = new User(fullName, socialNumber, hashedPassword);
-        storage.saveUser(newUser);
+        Customer newCustomer = new Customer(fullName, socialNumber, hashedPassword);
+        storage.saveCustomer(newCustomer);
 
-        return newUser;
+        return newCustomer;
     }
 
     private void registrationFailedMessage() {
@@ -46,8 +46,8 @@ public class UserRegistrator {
     private void invalidSocialNumberWarning() {
         ConsoleMessage.showErrorMessage("Invalid social number or age.");
     }
-    private void userExistWarning() {
-        ConsoleMessage.showErrorMessage("User with this social number already exist.");
+    private void customerExistWarning() {
+        ConsoleMessage.showErrorMessage("Customer with this social number already exist.");
     }
 
 }

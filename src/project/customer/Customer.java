@@ -1,4 +1,4 @@
-package project.user;
+package project.customer;
 
 import project.account.BankAccount;
 import project.utils.ObjectFactory;
@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class User implements Serializable {
+public class Customer implements Serializable {
     private transient Storage storage;
     private UUID id;
     private String fullName;
@@ -18,7 +18,7 @@ public class User implements Serializable {
    private static final long serialVersionUID = 6093496094500689635L;
 
 
-    public User(String fullName, String socialNumber, String password) {
+    public Customer(String fullName, String socialNumber, String password) {
         this.storage = ObjectFactory.getStorage();
 
         this.id = UUID.randomUUID();
@@ -28,7 +28,7 @@ public class User implements Serializable {
 
         createDefaultBankAccount();
 
-        this.accounts = storage.getAccountsByUserId(id);
+        this.accounts = storage.getAccountsByCustomerId(id);
     }
 
     public UUID getId() {

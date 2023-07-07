@@ -11,7 +11,7 @@ public class BankAccount implements Serializable {
 
     private String accountNumber;
 
-    private UUID userId;
+    private UUID customerId;
     private BigDecimal balance;
     private Currency currency;
     private List<Transaction> transactionsHistory;
@@ -19,10 +19,10 @@ public class BankAccount implements Serializable {
 
     private static final long serialVersionUID = -2174361050351122055L;
 
-    public BankAccount(UUID userId) {
+    public BankAccount(UUID customerId) {
         this.name = "Main Account";
         this.accountId = UUID.randomUUID();
-        this.userId = userId;
+        this.customerId = customerId;
         this.accountNumber = generateAccountNumber();
         this.balance = BigDecimal.ZERO;
         this.currency = Currency.getInstance("SEK");
@@ -41,8 +41,8 @@ public class BankAccount implements Serializable {
         return accountId;
     }
 
-    public UUID getUserId() {
-        return userId;
+    public UUID getCustomerId() {
+        return customerId;
     }
 
     public String getAccountNumber() {
@@ -69,7 +69,7 @@ public class BankAccount implements Serializable {
         numberFormat.setGroupingUsed(true);
         String formattedBalance = numberFormat.format(balance);
 
-        return  formattedBalance + " " + currency.getSymbol();
+        return formattedBalance + " " + currency.getSymbol();
     }
 
     public void setTransactionsHistory(ArrayList<Transaction> transactions) {
@@ -91,7 +91,9 @@ public class BankAccount implements Serializable {
         if(checksum < 10) {
             accountNumber.append(0).append(checksum);
         }
-        accountNumber.append(checksum);
+        else {
+            accountNumber.append(checksum);
+        }
 
         return accountNumber.toString();
     }

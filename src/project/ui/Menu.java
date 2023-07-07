@@ -18,23 +18,28 @@ public abstract class Menu {
           this.scanner = new Scanner(System.in);
      }
 
-     abstract void handleUserChoice();
-     protected abstract String getHeader();
+     abstract void handleChoice();
 
      public void displayMenu() {
           System.out.println(instruction);
+          printBlankLine();
+
           printOptions(options);
+          printBlankLine();
+
           System.out.println("Your choice: ");
      }
 
-     public void displayMenu(String header) {
-          printHeader(header);
-          printBody();
-     }
 
      public void showMenu() {
           displayMenu();
-          handleUserChoice();
+          handleChoice();
+     }
+
+     public void showMenu(String header) {
+          printHeader(header);
+          displayMenu();
+          handleChoice();
      }
 
      public boolean shouldReturnToMenu(String input) {
@@ -44,6 +49,11 @@ public abstract class Menu {
      public void returnToMenu() {
           ConsoleMessage.showInfoMessage("Returning to the previous menu.");
           showMenu();
+     }
+
+     public void exit() {
+          System.out.println("Quitting...");
+          System.exit(0);
      }
 
      public void printOptions(List<String> options) {
@@ -56,12 +66,8 @@ public abstract class Menu {
      public void printBlankLine() {
           System.out.println();
      }
-     public void exit() {
-          System.out.println("Quitting...");
-          System.exit(0);
-     }
 
-     public String getUserInput(String message) {
+     public String getInput(String message) {
           Scanner scanner = new Scanner(System.in);
           String input = "";
 
@@ -74,7 +80,7 @@ public abstract class Menu {
                     showInvalidInputMessage();
                }
           }
-          return input;
+          return input.trim();
      }
 
      public void showInvalidOptionMessage() {
@@ -86,15 +92,9 @@ public abstract class Menu {
      }
 
      private void printHeader(String header) {
-          System.out.println(header);
+          printBlankLine();
+          ConsoleMessage.showSuccessMessage(header);
           printBlankLine();
      }
 
-     private void printBody() {
-          System.out.println(instruction);
-          printBlankLine();
-          printOptions(options);
-          printBlankLine();
-          System.out.println("Your choice: ");
-     }
 }

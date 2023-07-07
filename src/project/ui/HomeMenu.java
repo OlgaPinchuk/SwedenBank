@@ -1,7 +1,7 @@
 package project.ui;
 
 import project.auth.*;
-import project.user.User;
+import project.customer.Customer;
 import project.utils.ConsoleMessage;
 import project.utils.ObjectFactory;
 import project.utils.Storage;
@@ -12,8 +12,8 @@ import java.util.List;
 import java.io.Console;
 
 public class HomeMenu extends Menu {
-    private final String header = "Welcome to the Bank App!";
-    private final static String instruction = "Please select an option:";
+    private final String header = "Welcome to the SwedenBank App!";
+    private final static String instruction = "Please select an option: ";
     private final static List<String> options = Arrays.asList("Log In", "Register", "Exit");
     private final String FULL_NAME_REQUEST = "Enter your full name (or type 'exit' to return to the previous menu): ";
     private final String SOCIAL_NUMBER_REQUEST = "Enter your social security number in the following format 'yyyy-abc' (or type 'exit' to return to the previous menu): ";
@@ -22,30 +22,26 @@ public class HomeMenu extends Menu {
     }
 
     public void run() {
-        showMenu();
+        showMenu(header);
     }
 
     @Override
-    protected String getHeader() {
-        return header;
-    }
-    @Override
-    public void handleUserChoice() {
+    public void handleChoice() {
         String input = scanner.nextLine();
         try {
             int selectedOption = Integer.parseInt(input.trim());
             switch (selectedOption) {
                 case 1 -> {
-                    User currentUser = loginUser();
-                        if (currentUser != null) {
-                            runCustomerMenu(currentUser);
+                    Customer currentCustomer = loginCustomer();
+                        if (currentCustomer != null) {
+                            runCustomerMenu(currentCustomer);
                         }
                     }
                     case 2 -> {
-                        User newUser = registerUser();
+                        Customer newCustomer = registerCustomer();
 
-                        if (newUser != null) {
-                            runCustomerMenu(newUser);
+                        if (newCustomer != null) {
+                            runCustomerMenu(newCustomer);
                         }
                     }
                     case 3 -> exit();
@@ -58,32 +54,32 @@ public class HomeMenu extends Menu {
             ConsoleMessage.showErrorMessage("Hashing password is failed.");
             throw new RuntimeException(e);
         }
-        handleUserChoice();
+        handleChoice();
     }
 
-    private void runCustomerMenu(User user) {
-        CustomerMenu customerMenu = ObjectFactory.getUserMenu(user);
+    private void runCustomerMenu(Customer customer) {
+        CustomerMenu customerMenu = ObjectFactory.getCustomerMenu(customer);
         customerMenu.run();
     }
 
-    private User registerUser() throws NoSuchAlgorithmException {
-        UserRegistrator userRegistrator = ObjectFactory.createUserRegistrator();
-        User newUser;
+    private Customer registerCustomer() throws NoSuchAlgorithmException {
+        CustomerRegistrator registrator = ObjectFactory.createCustomerRegistrator();
+        Customer newCustomer;
 
         while (true) {
-            String fullName = getUserInput(FULL_NAME_REQUEST);
+            String fullName = getInput(FULL_NAME_REQUEST);
             if (shouldReturnToMenu(fullName)) {
                 returnToMenu();
                 return null;
             }
 
-            String socialNumber = getUserInput(SOCIAL_NUMBER_REQUEST);
+            String socialNumber = getInput(SOCIAL_NUMBER_REQUEST);
             if (shouldReturnToMenu(socialNumber)) {
                 returnToMenu();
                 return null;
             }
 
-            String password = getUserPassword();
+            String password = getCustomerPassword();
             if (shouldReturnToMenu(password)) {
                 returnToMenu();
                 return null;
@@ -94,30 +90,30 @@ public class HomeMenu extends Menu {
                 continue;
             }
 
-            newUser = userRegistrator.register(fullName, socialNumber, password);
+            newCustomer = registrator.register(fullName, socialNumber, password);
 
-            if (newUser != null) {
-                ConsoleMessage.showSuccessMessage("User registered successfully.");
+            if (newCustomer != null) {
+                ConsoleMessage.showSuccessMessage("New customer was registered successfully.");
                 break;
             }
         }
 
-        return newUser;
+        return newCustomer;
     }
 
-    private User loginUser() {
+    private Customer loginCustomer() {
         Storage storage = ObjectFactory.getStorage();
-        UserAuthenticator userAuth = ObjectFactory.createUserAuthenticator();
-        User user;
+        CustomerAuthenticator authenticator = ObjectFactory.createCustomerAuthenticator();
+        Customer customer;
 
         while(true) {
-            String socialNumber = getUserInput(SOCIAL_NUMBER_REQUEST);
+            String socialNumber = getInput(SOCIAL_NUMBER_REQUEST);
             if (shouldReturnToMenu(socialNumber)) {
                 returnToMenu();
                 return null;
             }
 
-            String password = getUserPassword();
+            String password = getCustomerPassword();
             if (shouldReturnToMenu(password)) {
                 returnToMenu();
                 return null;
@@ -128,23 +124,23 @@ public class HomeMenu extends Menu {
                 continue;
             }
 
-            user = storage.getUserBySocialNumber(socialNumber);
+            customer = storage.getCustomerBySocialNumber(socialNumber);
 
-            if (user == null) {
-                ConsoleMessage.showErrorMessage("User not found. Please check your social number and try again.");
+            if (customer == null) {
+                ConsoleMessage.showErrorMessage("Customer not found. Please check your social number and try again.");
                 continue;
             }
 
             boolean isLoggedIn;
             try {
-                isLoggedIn = userAuth.logIn(user, password);
+                isLoggedIn = authenticator.logIn(customer, password);
             } catch (NoSuchAlgorithmException e) {
                 throw new RuntimeException(e);
             }
 
             if (isLoggedIn) {
                 ConsoleMessage.showSuccessMessage("Login successful! Welcome!");
-                return user;
+                return customer;
             }
             else {
                 ConsoleMessage.showErrorMessage("Invalid password. Please try again.");
@@ -152,15 +148,15 @@ public class HomeMenu extends Menu {
         }
     }
 
-    private String getUserPassword() {
-       String request = "Enter your password (or type 'exit' to return to the previous menu):";
+    private String getCustomerPassword() {
+       String request = "Enter your password (or type 'exit' to return to the previous menu): ";
         Console console = System.console();
         if (console != null) {
             System.out.print(request);
             char[] passwordChars = console.readPassword();
             return new String(passwordChars);
         } else {
-            return getUserInput(request);
+            return getInput(request);
         }
     }
 

@@ -2,16 +2,16 @@ package project.utils;
 
 import project.auth.*;
 import project.ui.CustomerMenu;
-import project.user.User;
+import project.customer.Customer;
 
 public class ObjectFactory {
 
     private ObjectFactory() {}
-    public static UserAuthenticator createUserAuthenticator() {
-        return new UserAuthenticator();
+    public static CustomerAuthenticator createCustomerAuthenticator() {
+        return new CustomerAuthenticator();
     }
-    public static UserRegistrator createUserRegistrator() {
-        return new UserRegistrator();
+    public static CustomerRegistrator createCustomerRegistrator() {
+        return new CustomerRegistrator();
     }
 
     public static Storage getStorage() {
@@ -22,7 +22,7 @@ public class ObjectFactory {
         return new Validator();
     }
 
-    public static CustomerMenu getUserMenu(User user) {
-        return new CustomerMenu(user);
+    public static CustomerMenu getCustomerMenu(Customer customer) {
+        return new CustomerMenu(customer);
     }
 }
