@@ -10,7 +10,6 @@ public abstract class Menu {
      protected List<String> options;
      protected Scanner scanner;
 
-//     private Menu() {}
 
      public Menu(String instruction, List<String> options) {
           this.instruction = instruction;

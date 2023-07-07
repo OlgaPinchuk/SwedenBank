@@ -6,6 +6,7 @@ public class ConsoleMessage {
     private static final String YELLOW = "\u001B[33m";
     private static final String GREEN = "\u001B[32m";
 
+    private ConsoleMessage() {}
     public static void showSuccessMessage(String message) {
         System.out.println(GREEN + message + RESET);
     }

@@ -63,7 +63,7 @@ public class HomeMenu extends Menu {
     }
 
     private Customer registerCustomer() throws NoSuchAlgorithmException {
-        CustomerRegistrator registrator = ObjectFactory.createCustomerRegistrator();
+        CustomerRegistrator registrator = ObjectFactory.getCustomerRegistrator();
         Customer newCustomer;
 
         while (true) {
@@ -103,7 +103,7 @@ public class HomeMenu extends Menu {
 
     private Customer loginCustomer() {
         Storage storage = ObjectFactory.getStorage();
-        CustomerAuthenticator authenticator = ObjectFactory.createCustomerAuthenticator();
+        CustomerAuthenticator authenticator = ObjectFactory.getCustomerAuthenticator();
         Customer customer;
 
         while(true) {

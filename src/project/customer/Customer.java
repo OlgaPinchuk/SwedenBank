@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Customer implements Serializable {
-    private transient Storage storage;
     private UUID id;
     private String fullName;
     private String socialNumber;
     private String password;
     private ArrayList<BankAccount> accounts;
+    private transient Storage storage;
    private static final long serialVersionUID = 6093496094500689635L;
 
 

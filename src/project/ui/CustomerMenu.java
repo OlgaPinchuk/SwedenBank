@@ -12,8 +12,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class CustomerMenu extends Menu {
-    private Customer customer;
     private  Storage storage;
+    private Customer customer;
     private List<BankAccount> customerAccounts;
     private final static String instruction = "Please select an option:";
     private final static List<String> options = Arrays.asList(
@@ -128,7 +128,6 @@ public class CustomerMenu extends Menu {
        ConsoleMessage.showSuccessMessage("The account renamed successfully. New name: " + account.getName());
        printAccountsDetails();
     }
-
 
     private void depositMoney() {
         BankAccount customerAccount = customerAccounts.get(0); // In this sprint a customer has 1 account.

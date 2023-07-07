@@ -8,11 +8,11 @@ public class ObjectFactory {
 
     private ObjectFactory() {}
 
-    public static CustomerAuthenticator createCustomerAuthenticator() {
+    public static CustomerAuthenticator getCustomerAuthenticator() {
         return new CustomerAuthenticator();
     }
 
-    public static CustomerRegistrator createCustomerRegistrator() {
+    public static CustomerRegistrator getCustomerRegistrator() {
         return new CustomerRegistrator();
     }
 
